@@ -78,61 +78,101 @@ function highlightNavigation() {
 
 window.addEventListener('scroll', highlightNavigation);
 
-// ===== Contact Form Submission =====
+// ===== Contact Form Submission (Client-side only) =====
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const formData = new FormData(contactForm);
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
         const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
         
-        // Disable button and show loading
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        // Validation
+        const errors = [];
         
-        try {
-            const response = await fetch('process_contact.php', {
-                method: 'POST',
-                body: formData
-            });
-            
-            const data = await response.json();
-            
-            formMessage.className = 'form-message';
-            formMessage.textContent = data.message;
-            
-            if (data.success) {
-                formMessage.classList.add('success');
-                contactForm.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            } else {
-                formMessage.classList.add('error');
-            }
-            
-            formMessage.style.display = 'block';
-            
-        } catch (error) {
-            formMessage.className = 'form-message error';
-            formMessage.textContent = 'An error occurred. Please try again.';
-            formMessage.style.display = 'block';
-        } finally {
-            // Re-enable button
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
+        if (!name) {
+            errors.push('Name is required');
         }
+        
+        if (!email) {
+            errors.push('Email is required');
+        } else if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            errors.push('Invalid email format');
+        }
+        
+        if (!message) {
+            errors.push('Message is required');
+        }
+        
+        // Show messages
+        formMessage.className = 'form-message';
+        
+        if (errors.length > 0) {
+            formMessage.classList.add('error');
+            formMessage.textContent = errors.join(', ');
+            formMessage.style.display = 'block';
+            return;
+        }
+        
+        // Show success message
+        formMessage.classList.add('success');
+        formMessage.textContent = 'Thank you for your message! I\'ll get back to you soon.';
+        formMessage.style.display = 'block';
+        
+        // Clear form
+        contactForm.reset();
+        
+        // Send to email (requires backend or third-party service)
+        // For now, just show success message
+        // You can integrate with a service like Formspree, EmailJS, or similar
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 5000);
     });
 }
 
 // ===== Project Modal =====
 let modalSlideshowInterval = null;
+
+// Sample projects data (static)
+const projectsData = [
+    {
+        id: 'project-1',
+        title: 'E-Commerce Platform',
+        description: 'A full-featured online shopping platform with cart and payment integration.',
+        technologies: 'Wordpress',
+    image_url: 'assets/images/placeholder-project.svg',
+    images: ['uploads/E-Commerce wordpress/pic1.png', 'uploads/E-Commerce wordpress/pic2.png', 'uploads/E-Commerce wordpress/pic3.png','uploads/E-Commerce wordpress/pic4.png'],
+        demo_link: 'http://yousufmahdoom.infinityfreeapp.com/',
+        //github_link: 'https://github.com/YousufMahdoom/E-Commerce-Platform'
+    },
+    {
+        id: 'project-2',
+        title: 'Item Registry for a POS',
+        description: 'This project focuses on Flutter UI development, state management, and basic CRUD operations (Create, Read, Update, Delete).',
+        technologies: 'Flutter App development, Dart',
+    image_url: 'assets/images/placeholder-project.svg',
+    images: ['uploads/Item Registry for a POS/pic1.jpg', 'uploads/Item Registry for a POS/pic2.jpg', 'uploads/Item Registry for a POS/pic3.jpg'],
+        //demo_link: 'http://yousufmahdoom.infinityfreeapp.com/',
+        github_link: ' https://github.com/YousufMahdoom/item_registry_app'
+    },
+    {
+        id: 'project-3',
+        title: 'FoodHub ',
+        description: 'This project is built using .NET framework and C# programming language. It utilizes SQL Server as the database management system to store and retrieve data efficiently.',
+        technologies: '.NET, C#, SQL Server',
+    image_url: 'assets/images/placeholder-project.svg',
+    images: ['uploads/FoodHub/pic1.png', 'uploads/FoodHub/pic2.png', 'uploads/FoodHub/pic3.png', 'uploads/FoodHub/pic4.png'],
+        //demo_link: 'http://yousufmahdoom.infinityfreeapp.com/',
+        github_link: ' https://github.com/YousufMahdoom/FoodHub.git'
+    }
+];
 
 function openProjectModal(projectId) {
     const modal = document.getElementById('projectModal');
