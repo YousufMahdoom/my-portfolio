@@ -160,7 +160,7 @@ const projectsData = [
     image_url: 'assets/images/placeholder-project.svg',
     images: ['uploads/Item Registry for a POS/pic1.jpg', 'uploads/Item Registry for a POS/pic2.jpg', 'uploads/Item Registry for a POS/pic3.jpg'],
         //demo_link: 'http://yousufmahdoom.infinityfreeapp.com/',
-        github_link: ' https://github.com/YousufMahdoom/item_registry_app'
+        //github_link: ' https://github.com/YousufMahdoom/item_registry_app'
     },
     {
         id: 'project-3',
@@ -170,7 +170,17 @@ const projectsData = [
     image_url: 'assets/images/placeholder-project.svg',
     images: ['uploads/FoodHub/pic1.png', 'uploads/FoodHub/pic2.png', 'uploads/FoodHub/pic3.png', 'uploads/FoodHub/pic4.png'],
         //demo_link: 'http://yousufmahdoom.infinityfreeapp.com/',
-        github_link: ' https://github.com/YousufMahdoom/FoodHub.git'
+        //github_link: ' https://github.com/YousufMahdoom/FoodHub.git'
+    },
+    {
+        id: 'project-4',
+        title: 'UrbanThreads',
+        description: 'A full-stack e-commerce web application designed for a fashion retailer, enabling online product browsing, user authentication, shopping cart, simulated checkout, and inventory management with a responsive React-based UI and secure PHP–MySQL backend.',
+        technologies: 'React, PHP, JavaScript',
+    image_url: 'assets/images/placeholder-project.svg',
+    images: ['uploads/UrbanThreads/Pic1.png', 'uploads/UrbanThreads/Pic2.png', 'uploads/UrbanThreads/Pic3.png', 'uploads/UrbanThreads/Pic4.png'],
+        //demo_link: 'http://yousufmahdoom.infinityfreeapp.com/',
+        //github_link: ' https://github.com/YousufMahdoom/FoodHub.git'
     }
 ];
 
