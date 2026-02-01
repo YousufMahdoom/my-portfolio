@@ -184,8 +184,8 @@ const projectsData = [
     },
     {
         id: 'project-5',
-        title: 'NizMahss (POS)',
-        description: 'Online (Web Base) and Offline POS system to retail and whole sales Shops ',
+        title: 'NizMah POS System',
+        description: 'I developed a modern Point of Sale application using React and JavaScript under NizMah Software Solutions. The system features an intuitive interface for managing sales, products, and customers, with real-time transaction handling and receipt generation. Designed to be responsive and scalable, it highlights my ability to build efficient, user-friendly web solutions tailored for business needs.',
         technologies: 'React, JavaScript',
     image_url: 'assets/images/placeholder-project.svg',
     images: ['uploads/NizMahss (POS)/Pic1.png', 'uploads/NizMahss (POS)/Pic2.png', 'uploads/NizMahss (POS)/Pic3.png', 'uploads/NizMahss (POS)/Pic4.png', 'uploads/NizMahss (POS)/Pic5.png'],
