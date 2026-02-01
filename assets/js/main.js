@@ -181,6 +181,16 @@ const projectsData = [
     images: ['uploads/UrbanThreads/Pic1.png', 'uploads/UrbanThreads/Pic2.png', 'uploads/UrbanThreads/Pic3.png', 'uploads/UrbanThreads/Pic4.png'],
         //demo_link: 'http://yousufmahdoom.infinityfreeapp.com/',
         //github_link: ' https://github.com/YousufMahdoom/FoodHub.git'
+    },
+    {
+        id: 'project-5',
+        title: 'NizMahss (POS)',
+        description: 'Online (Web Base) and Offline POS system to retail and whole sales Shops ',
+        technologies: 'React, JavaScript',
+    image_url: 'assets/images/placeholder-project.svg',
+    images: ['uploads/NizMahss (POS)/Pic1.png', 'uploads/NizMahss (POS)/Pic2.png', 'uploads/NizMahss (POS)/Pic3.png', 'uploads/NizMahss (POS)/Pic4.png', 'uploads/NizMahss (POS)/Pic5.png'],
+        //demo_link: 'http://yousufmahdoom.infinityfreeapp.com/',
+        //github_link: ' https://github.com/YousufMahdoom/FoodHub.git'
     }
 ];
 
