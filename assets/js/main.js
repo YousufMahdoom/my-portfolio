@@ -143,6 +143,16 @@ let modalSlideshowInterval = null;
 // Sample projects data (static)
 const projectsData = [
     {
+        id: 'project-0',
+        title: 'ERP System',
+        description: 'A comprehensive Enterprise Resource Planning (ERP) system designed to streamline business processes, manage resources, and enhance operational efficiency across various departments.',
+        technologies: 'Reactt(javascript), PHP, MySQL',
+    image_url: 'assets/images/placeholder-project.svg',
+    images: ['uploads/ERP/Pic1.png', 'uploads/ERP/Pic2.png', 'uploads/ERP/Pic3.png', 'uploads/ERP/Pic4.png'],
+        demo_link: 'https://demo.nizmahss.cloud',
+        //github_link: 'https://github.com/YousufMahdoom/E-Commerce-Platform'
+    },
+    {
         id: 'project-1',
         title: 'E-Commerce Platform',
         description: 'A full-featured online shopping platform with cart and payment integration.',
